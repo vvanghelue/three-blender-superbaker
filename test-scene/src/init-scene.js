@@ -39,7 +39,7 @@ export default async function () {
   container.appendChild(renderer.domElement)
 
 
-  const light = new THREE.HemisphereLight( 0xffffff, 0x000000, .1 );
+  const light = new THREE.HemisphereLight( 0xffffff, 0x000000, .03 );
   scene.add( light );
 
 //   const light = new THREE.AmbientLight(0xffffff);
