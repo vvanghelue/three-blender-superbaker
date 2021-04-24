@@ -93,3 +93,16 @@ export async function loadLightmaps({lightmaps, scene}) {
     const zip = await jszip.loadAsync(lightmaps)
     await loadTextures({ zip, scene })
 }
+
+export function loadHttpFileAsArrayBuffer({ url }) {
+    return new Promise((resolve) => {
+      var oReq = new XMLHttpRequest();
+      oReq.open("GET", url, true);
+      oReq.responseType = "arraybuffer";
+      oReq.onload = function (e) {
+        var arraybuffer = oReq.response
+        resolve(arraybuffer)
+      }
+      oReq.send();
+    })
+  }
