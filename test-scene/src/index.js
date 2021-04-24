@@ -146,16 +146,17 @@ function loadScene({ gltfData }) {
 
         // gltf.scene.scale.set(100, 100, 100)
         gltf.scene.traverse((child) => {
-          //return
+          return
           //console.log(child)
           if (child.isMesh) {
 
+            const color = child.material.color
             const map = child.material.map
             const normalMap = child.material.normalMap
             const roughnessMap = child.material.roughnessMap
             const emissiveMap = child.material.emissiveMap
             //console.log(emissiveMap)
-            child.material = new THREE.MeshBasicMaterial({ map, normalMap, roughnessMap, emissiveMap })
+            child.material = new THREE.MeshBasicMaterial({ color, map, normalMap, roughnessMap, emissiveMap })
             child.material.emissiveIntensity = 2
             // if (map) {
             //   child.material.map = map

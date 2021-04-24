@@ -38,6 +38,10 @@ export default async function () {
   renderer.setSize(window.innerWidth, window.innerHeight)
   container.appendChild(renderer.domElement)
 
+
+  const light = new THREE.HemisphereLight( 0xffffff, 0x000000, .1 );
+  scene.add( light );
+
 //   const light = new THREE.AmbientLight(0xffffff);
 //   light.intensity = .2;
 //   light.position.set(5, 0, 10);

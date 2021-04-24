@@ -186,7 +186,7 @@ for object in bpy.data.objects:
             bakedImagePath = BAKE_OUTPUT_FOLDER + "/" + bakedImageName
             resolution = object.get("lightmap_resolution", DEFAULT_RESOLUTION)
             resolution = max(DEFAULT_RESOLUTION, resolution)
-            resolution = DEFAULT_RESOLUTION
+            #resolution = DEFAULT_RESOLUTION
             print('  creating image with RESOLUTION : ' + str(resolution))
             bpy.ops.image.new(name=bakedImageName, width=resolution, height=resolution)
             bakedImage = bpy.data.images.get(bakedImageName)
@@ -286,4 +286,4 @@ bpy.context.scene.render.resolution_y = 1920
 print('Baking DONE')
 
 print('Exporting scene to _export.glb')
-bpy.ops.export_scene.gltf(filepath=bpy.path.abspath("//") + "_export.glb", use_custom_props=True)
+bpy.ops.export_scene.gltf(filepath=bpy.path.abspath("//") + "_export.glb", export_extras=True)
