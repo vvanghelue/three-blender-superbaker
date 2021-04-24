@@ -257,12 +257,12 @@ function loadFile({ url }) {
 
 ; (async () => {
 
-  await loadScene({ gltfData: await loadFile({ url: '/_export.glb' }) })
+  // await loadScene({ gltfData: await loadFile({ url: '/_export.glb' }) })
 
-  await loadLightmaps({
-    lightmaps: await loadFile({ url: '/_baked_lightmaps.zip' }),
-    scene
-  })
+  // await loadLightmaps({
+  //   lightmaps: await loadFile({ url: '/_baked_lightmaps.zip' }),
+  //   scene
+  // })
 
   // console.log(await loadFile({ url: '/_export.glb' }))
 })()

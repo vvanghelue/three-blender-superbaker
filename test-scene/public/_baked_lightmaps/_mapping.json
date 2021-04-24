@@ -3,7 +3,7 @@
         "objectName": "Cube",
         "materials": [
             {
-                "lightmapFile": "Baked_Texture_3VIPQ0.png"
+                "lightmapFile": "Baked_Texture_41OQRF.png"
             }
         ]
     },
@@ -11,7 +11,7 @@
         "objectName": "Cube.001",
         "materials": [
             {
-                "lightmapFile": "Baked_Texture_PEN3KI.png"
+                "lightmapFile": "Baked_Texture_G2M4B6.png"
             }
         ]
     },
@@ -23,7 +23,7 @@
         "objectName": "Cube.010",
         "materials": [
             {
-                "lightmapFile": "Baked_Texture_TYK6KG.png"
+                "lightmapFile": "Baked_Texture_JGFB1T.png"
             }
         ]
     },
@@ -31,7 +31,7 @@
         "objectName": "Plane",
         "materials": [
             {
-                "lightmapFile": "Baked_Texture_N9NSGL.png"
+                "lightmapFile": "Baked_Texture_PPZ94A.png"
             }
         ]
     }
