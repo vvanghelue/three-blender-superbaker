@@ -67,7 +67,7 @@ async function loadTextures({ zip, scene }) {
 
             const newMaterial = new THREE.MeshStandardMaterial()
             newMaterial.copy(mesh.material)
-            newMaterial.color = new THREE.Color(0xffffff)
+            // newMaterial.color = new THREE.Color(0xffffff)
             mesh.material = newMaterial
 
             if (mapping.materials[i].lightmapFile.includes('.exr')) {
