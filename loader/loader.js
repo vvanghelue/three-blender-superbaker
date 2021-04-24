@@ -64,6 +64,11 @@ async function loadTextures({ zip, scene }) {
                 console.log("loadTextures : no material for mesh : " + mapping.objectName)
                 continue
             }
+
+            const newMaterial = new THREE.MeshStandardMaterial()
+            newMaterial.copy(mesh.material)
+            mesh.material = newMaterial
+            
             if (mapping.materials[i].lightmapFile.includes('.exr')) {
                 new EXRLoader()
                     .setDataType(THREE.FloatType)
