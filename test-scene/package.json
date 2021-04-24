@@ -1,0 +1,23 @@
+{
+    "name": "superbaker-demo-scene",
+    "version": "1.0.0",
+    "main": "index.html",
+    "scripts": {
+        "start": "vite --port 1234"
+    },
+    "devDependencies": {
+        "vite": "^2.2.1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "browserslist": [
+        "last 1 Chrome version"
+    ],
+    "dependencies": {
+        "delay": "^5.0.0",
+        "jszip": "^3.6.0",
+        "three": "latest"
+    }
+}

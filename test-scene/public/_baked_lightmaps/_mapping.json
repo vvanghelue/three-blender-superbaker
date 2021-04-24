@@ -1,0 +1,38 @@
+[
+    {
+        "objectName": "Cube",
+        "materials": [
+            {
+                "lightmapFile": "Baked_Texture_3VIPQ0.png"
+            }
+        ]
+    },
+    {
+        "objectName": "Cube.001",
+        "materials": [
+            {
+                "lightmapFile": "Baked_Texture_PEN3KI.png"
+            }
+        ]
+    },
+    {
+        "objectName": "Cube.003",
+        "materials": []
+    },
+    {
+        "objectName": "Cube.010",
+        "materials": [
+            {
+                "lightmapFile": "Baked_Texture_TYK6KG.png"
+            }
+        ]
+    },
+    {
+        "objectName": "Plane",
+        "materials": [
+            {
+                "lightmapFile": "Baked_Texture_N9NSGL.png"
+            }
+        ]
+    }
+]

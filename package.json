@@ -1,0 +1,16 @@
+{
+  "name": "blender-three-superbaker",
+  "version": "0.0.1",
+  "description": "",
+  "main": "loader/loader.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "delay": "^5.0.0",
+    "jszip": "^3.6.0",
+    "three": "latest"
+  }
+}

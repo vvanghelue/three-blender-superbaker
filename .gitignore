@@ -1,0 +1,6 @@
+node_modules
+.DS_Store
+*.blend1
+test-scene/node_modules
+test-scene/_baked_lightmaps
+test-scene/_baked_lightmaps.zip
