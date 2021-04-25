@@ -14,7 +14,8 @@ bpy.context.scene.render.resolution_y = 4
 BAKE_OUTPUT_FOLDER = bpy.path.abspath("//") + '_baked_lightmaps'
 OUTPUT_FORMAT = 'png' # 'exr'
 
-DEFAULT_RESOLUTION = 128
+DEFAULT_DO_BAKE = False
+DEFAULT_RESOLUTION = 256
 
 if OUTPUT_FORMAT == 'exr':
     bpy.context.scene.render.image_settings.file_format = "OPEN_EXR"
@@ -96,6 +97,11 @@ for object in bpy.data.objects:
             print("  object not visible, continue")
             continue
             
+        doBake = object.get("do_bake", 0)
+        if DEFAULT_DO_BAKE == False and doBake is 0:
+            print("DEFAULT_DO_BAKE == False and do_bake is 0 or not present, skip")
+            continue
+        
         dontBake = object.get("dont_bake", 0)
         if dontBake != 0:
             print("  dont_bake = 1, continue")
