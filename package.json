@@ -10,7 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "delay": "^5.0.0",
-    "jszip": "^3.6.0",
-    "three": "latest"
+    "jszip": "^3.6.0"
   }
 }
