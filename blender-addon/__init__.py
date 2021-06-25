@@ -22,14 +22,14 @@ bl_info = {
 
 import bpy
 from . bake_single_object import SuperBaker_BakeSingleObject
-from . buttons import Button_BakeSingle
+from . ui import SuperBakerUI
 
-print(SuperBaker_BakeSingleObject)
-print(Button_BakeSingle)
+# print(SuperBaker_BakeSingleObject)
+# print(Button_BakeSingle)
 
 classes = (
     SuperBaker_BakeSingleObject,
-    Button_BakeSingle
+    SuperBakerUI
 )
 
 register, unregister  = bpy.utils.register_classes_factory(classes)
