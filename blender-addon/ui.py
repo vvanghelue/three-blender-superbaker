@@ -66,30 +66,47 @@ class SuperBakerUI(bpy.types.Panel):
         row.scale_y = 0.3
         row.label(text="")
 
+        selectedObjectsCount = len(bpy.context.selected_objects)
+
 
         if obj.type == "MESH":
+            
             row = layout.row(align=True)
-            # row.label(text="For active object (" + obj.name + ")", icon='MESH_CUBE')
-            row.label(text=obj.name, icon='SETTINGS')
+            row.label(text="Default lightmap resolution :", icon='WORLD')
+            
+            row = layout.row(align=True)
+            row.prop(context.scene.SuperBakerSceneProperties, "default_lightmap_resolution", expand=False)
+            
+            row = layout.row()
+            row.operator("superbaker.apply_res_to_selected", text="Apply default to selected (" + str(selectedObjectsCount) + ")")
+
+            row = layout.row(align=True)
+            row.label(text="")
+
 
             if len(obj.data.materials) == 0:
                 row = layout.row(align=True)
                 row.label(text="Not bakable (no material found)")
             else:
-                # row = layout.row()
-                # row.prop(obj, "name")
+                if selectedObjectsCount == 1:
+                    row = layout.row(align=True)
+                    row.label(text=obj.name, icon='SETTINGS')
+                    # row = layout.row()
+                    # row.prop(obj, "name")
 
-                # row = layout.row(align=True)
-                # row = col.split(factor=0.6, align=True)
-                row = layout.row(align=True)
-                # row.label(text='Baking Enabled')
-                row.prop(obj.SuperBakerObjectProperties, "baking_enabled")
+                    # row = layout.row(align=True)
+                    # row = col.split(factor=0.6, align=True)
+                    row = layout.row(align=True)
+                    # row.label(text='Baking Enabled')
+                    row.prop(obj.SuperBakerObjectProperties, "baking_enabled")
 
-                row = layout.row(align=True)
-                row.prop(obj.SuperBakerObjectProperties, "lightmap_resolution", expand=False)
+                    row = layout.row(align=True)
+                    row.prop(obj.SuperBakerObjectProperties, "lightmap_resolution", expand=False)
 
-                row = layout.row()
-                row.operator("superbaker.bake_selected_objects", text="Bake selected objects : (" + str(len(bpy.context.selected_objects)) + ")")
+        if selectedObjectsCount > 0:
+            row = layout.row()
+            row.scale_y = 2
+            row.operator("superbaker.bake_selected_objects", text="Bake selected objects (" + str(selectedObjectsCount) + ")")
 
         row = layout.row()
         row.scale_y = 2
@@ -97,7 +114,7 @@ class SuperBakerUI(bpy.types.Panel):
 
         row = layout.row()
         row.scale_y = 2
-        row.operator("superbaker.toggle_lightmaps_preview", text="Show preview", icon='HIDE_OFF')
+        row.operator("superbaker.toggle_lightmaps_preview", text="Toggle preview", icon='HIDE_OFF')
 
         # little separator
         row = layout.row()
@@ -105,14 +122,7 @@ class SuperBakerUI(bpy.types.Panel):
         row.label(text="")
 
         row = layout.row(align=True)
-        row.label(text="For all scene :" , icon='WORLD')
-        
-        row = layout.row(align=True)
-        row.prop(context.scene.SuperBakerSceneProperties, "default_lightmap_resolution", expand=False)
-        
-        row = layout.row()
-        selectedCount = str(len(bpy.context.selected_objects))
-        row.operator("superbaker.apply_res_to_selected", text="Apply default to selected (" + selectedCount + ")")
+        row.label(text="Export all lightmaps:", icon='WORLD')
 
         row = layout.row()
         row.scale_y = 2

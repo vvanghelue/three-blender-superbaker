@@ -309,7 +309,27 @@ class ToggleLightmapsPreview(bpy.types.Operator):
 
     def invoke(self, context, event):
         print("ToggleLightmapsPreview")
-        bpy.context.space_data.shading.use_scene_world = True
+        # bpy.context.space_data.shading.use_scene_world = True
+        # bpy.context.space_data.shading.type = 'MATERIAL'
+
+        # set material shading
+        for area in bpy.context.screen.areas: 
+            if area.type == 'VIEW_3D':
+                for space in area.spaces: 
+                    if space.type == 'VIEW_3D':
+                        space.shading.type = 'MATERIAL'
+                        
+        # Set nodes
+        for object in bpy.data.objects:
+            if object.type == "MESH":
+                for material in object.data.materials:
+                    if material.use_nodes:
+                        nodeToDisconnect = None
+                        shader = None
+                        for node in material.node_tree.nodes:
+                            if node.type == 'OUTPUT_MATERIAL':
+
+
         return {'RUNNING_MODAL'}
 
 
@@ -362,6 +382,8 @@ def register():
     bpy.utils.register_class(BakeAllSceneObjects)
     bpy.utils.register_class(ToggleLightmapsPreview)
     bpy.utils.register_class(ExportLightmaps)
+    bpy.utils.register_class(SetResolutionToAll)
+    
     
 
 def unregister():
@@ -369,6 +391,7 @@ def unregister():
     bpy.utils.unregister_class(BakeAllSceneObjects)
     bpy.utils.unregister_class(ToggleLightmapsPreview)
     bpy.utils.unregister_class(ExportLightmaps)
+    bpy.utils.unregister_class(SetResolutionToAll)
 
 if __name__ == "__main__":
     register()
